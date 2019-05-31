@@ -1,0 +1,344 @@
+/* Showcase Section */
+.showcase {
+    position: relative;
+    height: 100vh;
+    // background: url(../images/home_banner2.jpg);
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    // background-attachment: fixed;
+    color: #fff;
+
+    .showcase-inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+    
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 1px 3px 5px rgba(0,0,0,.5);
+            text-transform: uppercase;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 2px;
+                background: rgba(255,255,255,.4);
+                margin: .7rem 0;
+            }
+        }
+        
+        h3 {
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+/* About Section */
+.about {
+    background-color: rgba(255,255,255,.8);
+    color: $dark-color;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/about-bg1.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.about-cards {
+    margin-top: -6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about-card {
+    position: relative;
+    // display: inline-block;
+    width: 350px;
+    height: 400px;
+    margin: 1em .5em;
+    background: $dark-color;
+    box-shadow: 0 5px 15px rgba(0,0,0,.4);
+    overflow: hidden;
+    transition: .5s;
+
+    .about-imgBox {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .8s;
+        }
+    }
+
+    &:hover img {
+        opacity: .5;
+        transform: scale(1.1);
+    }
+
+    .img-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1.2rem;
+        // opacity: 0; 
+        transition: .8s;
+
+        h3 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12.5rem;
+        }
+
+        p {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1.2em;
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: 1s;
+        }
+
+        .btn-about {
+            // display: inline-block;
+            // text-decoration: none;
+            // text-align: left;
+            // color: $light-color;
+            // background: transparent;
+            // border: 1px solid #fff;
+            // font-size: 1rem;
+            // font-weight: 700;
+            // padding: .7em 1.2em;
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: 1s;
+
+            // &:hover {
+            //     color: $dark-color;
+            //     background: #fff;
+            // }
+        }
+    }
+
+    &:hover p, &:hover .btn-about {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-content {
+    padding: 3rem 6rem;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.8rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+}
+
+/* Feature Section */
+.feature-section {
+    height: 100vh;
+    background: url(../images/the-broad-museum.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.feature-project {
+    float: left;
+    width: 50%;
+    // height: 100%;
+    background: rgba(0,0,0,.4);
+    color: #fff;
+    padding: 3rem 4.2rem;
+    margin: 6rem 0 0 3rem;
+
+    h5 {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        opacity: .8; 
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 1rem 0;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+
+    // .btn {
+    //     display: inline-block;
+    //     text-decoration: none;
+    //     text-align: left;
+    //     color: $light-color;
+    //     background: transparent;
+    //     border: 1px solid #fff;
+    //     font-size: 1rem;
+    //     font-weight: 700;
+    //     padding: .7em 1.2em;
+    //     transition: .5s;
+
+    //     &:hover {
+    //         color: $dark-color;
+    //         background: #fff;
+    //     }
+    // }
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 990px) {
+    .showcase {
+        .showcase-inner {
+    
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    }
+    
+    .about-card {
+        width: 300px;
+        height: 350px;
+     }
+
+    .img-text {
+         
+        &:hover p, &:hover .btn-about {
+            transform: translateY(-20px);
+        }
+     }
+
+    .feature-project {
+        margin: 3rem 0 0 3rem;
+
+        h5 {
+            font-size: 1.2rem;
+        }
+    
+        h2 {
+            font-size: 2.4rem;
+        }
+    
+        p {
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .showcase {
+        height: 80vh;
+
+        .showcase-inner {
+    
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .about-cards {
+        margin-top: 0;
+        justify-content: center;
+    }
+    
+    .about-card {
+        width: 350px;
+        height: 400px;
+     }
+
+    .about-content {
+    
+        h1 {
+            font-size: 2.5rem;
+        }
+     }
+
+    .feature-section {
+        padding: 10% 5%;
+     }
+
+    .feature-project {
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+
+        h5 {
+            font-size: 1.2rem;
+        }
+    
+        h2 {
+            font-size: 2.4rem;
+        }
+    
+        p {
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .about-content {
+    
+        h1 {
+            font-size: 2.2rem;
+        }
+     }
+}

@@ -1,0 +1,300 @@
+/* Showcase Build Section */
+.showcase-build {
+    height: 70vh;
+    background-color: rgba(44, 71, 84,.7); // #454f7c
+    // background-image: url(../images/build_banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: cover;
+    // background-blend-mode: multiply;
+    color: #fff;
+
+    .showcase-build-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+    
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+/* Build Section */
+.build {
+    position: relative;
+    min-height: 100vh;
+    background-color: $light-color;
+    color: $dark-color;
+    padding: 6rem 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -40px;
+        left: 10%;
+    //    display: block;
+        width: 80%;
+    //    margin: 0 auto;
+        height: 80px;
+        background-image:
+        linear-gradient(to bottom right, transparent 50%,#BE955A 51.5%),
+        linear-gradient(to top right, transparent 50%,#BE955A 51.5%),
+        linear-gradient(to bottom left, transparent 50%,#CCA56B 51.5%),
+        linear-gradient(to top left, transparent 50%,#CCA56B 51.5%);
+        background-position:0 0,0 100%,100% 0,100% 100%;
+        background-size:50.1% 50%;
+        background-repeat:no-repeat;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 30px;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        display: block;
+        background-color: rgba(0,0,0,.2);
+        // z-index: 1;
+    }
+
+}
+
+.build-inner {
+    h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 1.8rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 1.8rem;
+    }
+
+    .btn-build {
+        // display: inline-block;
+        // text-decoration: none;
+        // text-align: left;
+        color: $dark-color;
+        // background: transparent;
+        border: 1px solid #262626;
+        // font-size: 1rem;
+        // font-weight: 700;
+        // padding: .7em 1.2em;
+        // transition: .5s;
+
+        // &:hover {
+        //     color: $dark-color;
+        //     background: #fff;
+        // }
+    }
+}
+
+.build-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+
+    &:last-child {
+        margin-bottom: 0;
+
+    }
+
+    .build-img {
+        flex: 1;
+    }
+
+    .build-desc {
+        flex: 1;
+        
+        &:nth-of-type(1), &:nth-of-type(3) {
+            margin-right: 2rem;
+        }
+        
+        &:nth-of-type(2) {
+            margin-left: 2rem;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.build-2 {
+    position: relative;
+    min-height: 100vh;
+    background-color: $light-color;
+    color: $dark-color;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.build-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    padding: 2em;
+    margin: auto;
+}
+
+.tiler {
+    display: inline-block;
+    cursor: pointer;
+    visibility: hidden;
+    width: 33.3%;
+    margin: auto;
+
+    img {
+        display: block;
+        margin: .5em; 
+        max-width: 100%;
+        visibility: visible;
+    }
+
+    .cell-grid {
+        background-position: center center;
+        margin: auto;
+        position: fixed;
+        top: 1em;
+        bottom: 1em;
+        left: 1em;
+        right: 1em;
+        z-index: 10;
+        max-width: 900px;
+        max-height: 600px;
+        perspective: 30px;
+    }
+    
+    .cell {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateZ(-15px);
+        transform-style: preserve-3d;
+        transition-property: opacity, -webkit-transform;
+        transition-property: transform, opacity;
+        transition-property: transform, opacity, -webkit-transform;
+        transition-duration: 0.5s, 0.4s;
+        transition-timing-function: cubic-bezier(0.65, 0.01, 0.15, 1.33);
+
+        // The center character index 
+        --center-x: calc((var(--col-total) - 1) / 2);
+        --center-y: calc((var(--row-total) - 1) / 2);
+        // Offset from center, positive & negative 
+        --offset-x: calc(var(--col-index) - var(--center-x));
+        --offset-y: calc(var(--row-index) - var(--center-y));
+        // Absolute distance from center, only positive 
+        --distance-x: calc((var(--offset-x) * var(--offset-x)) / var(--center-x));
+        // Absolute distance from center, only positive 
+        --distance-y: calc((var(--offset-y) * var(--offset-y)) / var(--center-y));
+        transition-delay: calc(0.1s * var(--distance-y) + 0.1s * var(--distance-x));
+    }
+
+    .tiler-overlay {
+        z-index: 2;
+    }
+
+    &:hover {
+        .cell {
+            // pointer-events: none;
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 1100px) {
+    .build-inner {
+        h2 {
+            font-size: 2.5rem;
+        }
+    
+        p {
+            font-size: 1rem;
+            line-height: 1.2;
+
+        }
+    }
+}
+
+@media screen and (max-width: 990px) {
+
+    .tiler {
+        
+        .cell-grid {
+            max-width: 800px;
+            max-height: 600px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .build-item {
+        flex-direction: column;
+
+        .build-img {
+            order: 1;
+        }
+    
+        .build-desc {
+            order: 2;
+            margin-top: 1.2rem;
+
+            &:nth-of-type(1), &:nth-of-type(3) {
+                margin-right: 0;
+            }
+
+            &:nth-of-type(2) {
+                margin-left: 0;
+            }
+
+        }
+    }
+
+    .tiler {
+        
+        .cell-grid {
+            max-width: 700px;
+            max-height: 500px;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .showcase-build {
+        height: 50vh;
+
+        .showcase-build-inner {
+    
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .tiler {
+        
+        .cell-grid {
+            max-width: 600px;
+            max-height: 400px;
+        }
+    }
+}

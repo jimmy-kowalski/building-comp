@@ -1,0 +1,211 @@
+/* Showcase Contact Section */
+
+.showcase-contact {
+    height: 80vh;
+    // background-color: #2c4754; // #454f7c
+    // background-image: url(../images/contact_banner.jpg);
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    // background-blend-mode: multiply;
+    color: #fff;
+
+    .showcase-contact-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+    
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+/* Contact Section */
+.contact {
+    position: relative;
+    min-height: 100vh;
+    background-color: $light-color;
+    padding: 3rem 0;
+}
+
+.contact-inner {
+    display: flex;
+
+    h2 {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 2.5rem;
+        color: $dark-color;
+    }
+}
+
+.company-info {
+    flex: 1;
+    color: $dark-color;
+    
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+
+        &:nth-of-type(2) {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    .map {
+        margin-right: 2rem;
+        overflow: hidden;
+        padding-top: 56.25%;
+        position: relative;
+        // height: 0;
+        
+        iframe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+    }
+}
+
+.contact-form {
+    flex: 1;
+    // padding: 0 40px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background: $body-color;
+    padding: 1.2rem 2.5rem;
+    box-shadow: 0 0 20px 0 rgba(29, 45, 61, .5);
+    
+    label {
+        display: flex;
+        color: $light-color;
+    }
+
+    .form-tooltip {
+        position: relative;
+        display: inline-block;
+        background: $headfootColor;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        font-size: .8rem;
+        text-align: center;
+        margin-left: 5px;
+
+        &::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 20px;
+            padding: 10px;
+            background: rgba(17, 40, 51, .7);
+            text-align: left;
+            width: 250px;
+            color: #fff;
+            display: none; 
+        }
+
+        &:hover {
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        background: $headfootColor;
+        color: #fff;
+        margin: .5rem 0 .8rem;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+
+    .recaptcha {
+        width: 240px;
+        height: 60px;
+        display: block;
+        margin: .7rem 0 1.2rem;
+    }
+
+    .btn-submit {
+        display: inline-block;
+        // width: 200px;
+        padding: 1em 1.5em;
+        border: none;
+        background: #607d8b;
+        color: $light-color;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        transition: .5s;
+
+        &:hover {
+            color: #fff;
+            background: $headfootColor;
+        }
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 990px) {
+    .contact-inner {
+    
+        h2 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .contact-inner {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        order: 1;
+    }
+
+    .company-info {
+        order: 2;
+        margin-top: 3rem;
+
+        .map {
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .showcase-contact {
+        height: 70vh;
+
+        .showcase-contact-inner {
+    
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+    }
+}

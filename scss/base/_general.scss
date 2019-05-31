@@ -1,0 +1,46 @@
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+body {
+	background-color: $body-color;
+	font-family: $myFont;
+	overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+.dark {
+	background: $headfootColor !important;
+}
+
+.btn {
+	display: inline-block;
+	text-decoration: none;
+	color: $light-color;
+	background: transparent;
+	border: 1px solid #fff;
+	font-size: 1rem;
+	font-weight: 700;
+	padding: .7em 1.2em;
+	transition: .5s;
+
+	&:hover {
+		color: $dark-color;
+		background: #fff;
+	}
+}

@@ -1,0 +1,175 @@
+/* Navigation */
+.main-nav {
+    // position: relative;
+    width: 100%;
+    // padding: 10px 0;
+
+   
+    ul {
+       
+        //  float: right;
+        display: flex;
+        justify-content: flex-end;
+        overflow: hidden;
+        }
+
+    li {
+        //  float: left;
+        // position: relative;
+
+        .dropdown {
+            position: absolute;
+            display: none;
+            width: 200px;
+            background: $headtranspColor;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0, .3);
+            
+            
+            li {
+                display: block;
+                border-bottom: 1px solid rgba(255,255,255,.1);
+            }
+
+            a {
+                display: block;
+                color: $light-color;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        &:hover .dropdown {
+            display: block;
+        }
+
+    }
+
+    a {
+        display: inline-block; 
+        padding: 0 20px;
+        font-size: 1.2rem;
+        line-height: 70px;
+        color: $light-color;
+        text-transform: uppercase;
+        transition: all .5s;
+
+        .fa {
+            margin-left: 2px;
+            font-size: 1.3rem;
+        }
+
+        &.active, &:hover {
+            background-color: rgba(69, 185, 243, 0.8);
+            color: #fff;
+        }
+    }
+}
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media screen and (max-width: 990px) {
+        .main-nav {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 40%;
+            // height: 0;
+            // opacity: 0;
+            // visibility: hidden;
+            background: $headfootColor;
+            clip-path: circle(0px at top right);
+            transition: .8s ease-out;
+
+            &.open {
+//             max-height: 35em;
+                // opacity: 1;
+                // visibility: visible;
+                // height: auto;
+                clip-path: circle(250% at top right);
+
+        }
+
+            ul {
+                flex-direction: column;
+
+            }
+
+            li {
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,.1);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .dropdown {
+                    position: relative;
+                    width: 100%;
+                    box-shadow: none;
+
+                    a {
+                        line-height: 40px;
+                        font-size: 1rem;
+                        text-align: left;
+                        padding-left: 20px;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                color: $light-color;
+                line-height: 60px;
+                // padding: 10px 0;
+             }
+              
+        }
+
+        .menu-toggle {
+            padding: .6em .8em;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            cursor: pointer;
+            display: block;
+
+            // menu ikonica
+            .hamburger, .hamburger::before, .hamburger::after {
+                content: '';
+                display: block;
+                background: $light-color;
+                height: 3px;
+                width: 1.75rem;
+                border-radius: 3px;
+                transition: .5s ease-in-out;
+            }
+            
+            // gornja linija 
+            .hamburger::before {
+                transform: translateY(-6px);
+            }
+            
+            // donja linija 
+            .hamburger::after {
+                transform: translateY(3px);
+            }
+
+            // transformacija menu ikonice 
+            &.open .hamburger {
+                transform: rotate(45deg);
+            }
+
+            &.open .hamburger::before {
+                opacity: 0;
+            }
+
+            &.open .hamburger::after {
+                transform: translateY(-3px) rotate(-90deg); 
+            }
+
+    }
+}
