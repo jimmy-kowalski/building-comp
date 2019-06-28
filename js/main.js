@@ -25,6 +25,46 @@ $('.menu-toggle').click(function() {
     once: true 
 });
 
+// Form validation
+$(function() {
+    $('#contact-form').validate({
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            message: {
+                required: true,
+                minlength: 10,
+                maxlength: 200
+            }
+        },
+        messages: {
+            name: "Please enter your name.",
+            email: {
+                required: "Please enter a email address",
+                email: "Please enter a valid email address (e.g. john@gmail.com)."
+            },
+            message: {
+                required: "Please write your comment or ask a question.",
+                minlegth: "Please enter at least 10 characters.",   
+                maxlength: "Please enter no more than 200 characters."        
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }    
+    });
+
+    // $('#contact-form').submit(function(e) {
+    //     e.preventDefault();
+    //     $(this).addClass("hide");
+    //     console.log("submitted");
+    // });
+
+});
+
 // paralax effect
 // $(window).scroll(function() {
 //     parallax();
